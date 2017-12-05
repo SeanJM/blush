@@ -1,0 +1,36 @@
+{
+  "name": "blush",
+  "version": "1.0.0",
+  "description": "A library for manipulating color",
+  "main": "blush.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^3.19.0",
+    "eslint-plugin-dependencies": "^2.4.0",
+    "match-file-utility": "^3.4.0",
+    "tiny-test": "^0.9.4",
+    "uglifyjs-webpack-plugin": "^1.1.2",
+    "webpack": "^3.10.0"
+  },
+  "devDependencies": {
+    "webpack-node-externals": "^1.6.0"
+  },
+  "scripts": {
+    "start": "webpack --watch",
+    "build": "NODE_ENV=production webpack",
+    "test": "node test/index.js"
+  },
+  "keywords": [
+    "color",
+    "library",
+    "query",
+    "mutator"
+  ],
+  "author": "Sean J. MacIsaac <seanjmacisaac@gmail.com>",
+  "license": "MIT"
+}
