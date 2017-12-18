@@ -14,15 +14,15 @@ module.exports = [{
     path          : path.resolve("./")
   },
 
+  target : "node",
+
   module : {
     loaders : [{
       test    : /\.js$/,
       loader  : "babel-loader",
       exclude : /node_modules/,
-      query : {
-        presets: [
-          [ "env", { targets : { node: "current" } } ]
-        ]
+      query   : {
+        presets: [ "env" ]
       }
     }],
   },
