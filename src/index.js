@@ -45,8 +45,8 @@ class Blush {
   rotate(p) {
     if (this.__rotate + p < 0) {
       this.__rotate = 360 + (this.__rotate + p);
-    } else if (this._rotate > 360) {
-      this.__rotate = this.__rotate % 360;
+    } else if (this._rotate + p > 360) {
+      this.__rotate = (this.__rotate + p) % 360;
     } else {
       this.__rotate += p / 360;
     }
