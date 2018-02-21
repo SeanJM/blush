@@ -54,7 +54,7 @@ tinytest(function (test, load) {
     .this(() => blush("#0089e5").rotate(10).rgba())
     .isEqual(() => "rgba(0, 99, 229, 1)");
 
-  test("Adjust hue blue")
+  test("Adjust hue blue (rotate -360)")
     .this(() => blush("#1ce2da").rotate(-360).hex())
     .isEqual(() => "#1ce2da");
 
