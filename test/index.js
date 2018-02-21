@@ -58,5 +58,9 @@ tinytest(function (test, load) {
     .this(() => blush("#1ce2da").rotate(-360).hex())
     .isEqual(() => "#1ce2da");
 
+  test("Adjust hue blue (rotate -360)")
+    .this(() => blush("#1ce2da").rotate(-5).hex())
+    .isEqual(() => "#1ce2ca");
+
   load();
 });

@@ -43,14 +43,7 @@ class Blush {
   }
 
   rotate(p) {
-    p = p / 360;
-    if (this.__rotate + p < 0) {
-      this.__rotate = 1 + (this.__rotate + p);
-    } else if (this.__rotate + p > 1) {
-      this.__rotate = (this.__rotate + p) - 1;
-    } else {
-      this.__rotate += p;
-    }
+    this.__rotate += p / 360;
     return this;
   }
 
@@ -60,6 +53,14 @@ class Blush {
 
   applyHsl() {
     const hsl = this.__hsl.slice();
+
+    while (hsl[0] + this.__rotate < 0) {
+      this.__rotate += 1;
+    }
+
+    while (hsl[0] + this.__rotate > 1) {
+      this.__rotate -= 1;
+    }
 
     hsl[0] = Math.max(0, Math.min(1, hsl[0] + this.__rotate));
     hsl[1] = Math.max(0, Math.min(1, hsl[1] + this.__saturate));
