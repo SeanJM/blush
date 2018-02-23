@@ -1,6 +1,10 @@
 import hslToRgb    from "./common/hslToRgb";
 import rgbToHex    from "./common/rgbToHex";
+import rgbToHsl    from "./common/rgbToHsl";
+import rgbToCMYK   from "./common/rgbToCMYK";
+import cmykToRgb   from "./common/cmykToRgb";
 import stringToHSL from "./common/stringToHSL";
+import slope       from "./common/slope";
 
 class Blush {
   constructor(x) {
@@ -44,6 +48,14 @@ class Blush {
 
   rotate(p) {
     this.__rotate += p / 360;
+    return this;
+  }
+
+  mix(color, amount) {
+    const a    = rgbToCMYK.apply(null, new Blush(color).rgbArray());
+    const b    = rgbToCMYK.apply(null, this.rgbArray());
+    const c    = a.map((x, i) => slope(x, b[i], amount));
+    this.__hsl = rgbToHsl.apply(null, cmykToRgb.apply(null, c));
     return this;
   }
 

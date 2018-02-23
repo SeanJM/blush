@@ -62,5 +62,9 @@ tinytest(function (test, load) {
     .this(() => blush("#1ce2da").rotate(-5).hex())
     .isEqual(() => "#1ce2ca");
 
+  test("Mix colors (#0000ff, #ed1c24)")
+    .this(() => blush("#0000ff").mix("#ed1c24", 0.5).hex())
+    .isEqual(() => "#7c0f8e");
+
   load();
 });
