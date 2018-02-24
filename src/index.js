@@ -54,7 +54,7 @@ class Blush {
   mix(color, amount) {
     const a    = rgbToCMYK.apply(null, new Blush(color).rgbArray());
     const b    = rgbToCMYK.apply(null, this.rgbArray());
-    const c    = a.map((x, i) => slope(x, b[i], amount));
+    const c    = a.map((x, i) => slope(b[i], x, amount));
     this.__hsl = rgbToHsl.apply(null, cmykToRgb.apply(null, c));
     return this;
   }
