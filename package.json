@@ -6,7 +6,9 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "tiny-test": "^0.11.6"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -14,7 +16,6 @@
     "eslint": "^3.19.0",
     "eslint-plugin-dependencies": "^2.4.0",
     "match-file-utility": "^3.4.0",
-    "tiny-test": "^0.9.4",
     "uglifyjs-webpack-plugin": "^1.1.2",
     "webpack": "^3.10.0",
     "webpack-node-externals": "^1.6.0"

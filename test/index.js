@@ -2,69 +2,68 @@ const blush    = require("../index.js");
 const tinytest = require("tiny-test");
 
 tinytest(function (test, load) {
-  test("White")
-    .this(() => blush("#fff").hex())
+  test("White", () => blush("#fff").hex())
     .isEqual(() => "#ffffff");
 
-  test("Blue")
-    .this(() => blush("#0089e5").hex())
+  test("Blue", () => blush("#0089e5").hex())
     .isEqual(() => "#0089e5");
 
-  test("Darken white")
-    .this(() => blush("#fff").darken(0.1).hex())
+  test("Darken white", () => blush("#fff").darken(0.1).hex())
     .isEqual(() => "#e6e6e6");
 
-  test("Darken blue")
-    .this(() => blush("#0089e5").darken(0.1).hex())
+  test("Darken blue", () => blush("#0089e5").darken(0.1).hex())
     .isEqual(() => "#006ab2");
 
-  test("Lighten blue")
-    .this(() => blush("#0089e5").lighten(0.1).hex())
+  test("Lighten blue", () => blush("#0089e5").lighten(0.1).hex())
     .isEqual(() => "#19a3ff");
 
-  test("Lighten blue to RGB")
-    .this(() => blush("#0089e5").lighten(0.1).rgb())
+  test("Lighten blue to RGB", () => blush("#0089e5").lighten(0.1).rgb())
     .isEqual(() => "rgb(25, 163, 255)");
 
-  test("Lighten blue to HSL")
-    .this(() => blush("#0089e5").lighten(0.1).hsl())
+  test("Lighten blue to HSL", () => blush("#0089e5").lighten(0.1).hsl())
     .isEqual(() => "hsl(204, 100%, 55%)");
 
-  test("Lighten blue to HSLA")
-    .this(() => blush("#0089e5").lighten(0.1).hsla())
+  test("Lighten blue to HSLA", () => blush("#0089e5").lighten(0.1).hsla())
     .isEqual(() => "hsla(204, 100%, 55%, 1)");
 
-  test("Lighten blue to RGBA")
-    .this(() => blush("#0089e5").lighten(0.1).rgba())
+  test("Lighten blue to RGBA", () => blush("#0089e5").lighten(0.1).rgba())
     .isEqual(() => "rgba(25, 163, 255, 1)");
 
-  test("Darken blue to RGBA")
-    .this(() => blush("#0089e5").darken(0.1).rgba())
+  test("Darken blue to RGBA", () => blush("#0089e5").darken(0.1).rgba())
     .isEqual(() => "rgba(0, 106, 178, 1)");
 
-  test("Darken blue (over drive)")
-    .this(() => blush("#0089e5").darken(100).rgba())
+  test("Darken blue (over drive)", () => blush("#0089e5").darken(100).rgba())
     .isEqual(() => "rgba(0, 0, 0, 1)");
 
-  test("Lighten blue (over drive)")
-    .this(() => blush("#0089e5").lighten(100).rgba())
+  test("Lighten blue (over drive)", () => blush("#0089e5").lighten(100).rgba())
     .isEqual(() => "rgba(255, 255, 255, 1)");
 
-  test("Adjust hue blue")
-    .this(() => blush("#0089e5").rotate(10).rgba())
+  test("Adjust hue blue", () => blush("#0089e5").rotate(10).rgba())
     .isEqual(() => "rgba(0, 99, 229, 1)");
 
-  test("Adjust hue blue (rotate -360)")
-    .this(() => blush("#1ce2da").rotate(-360).hex())
+  test("Adjust hue blue (rotate -360)", () => blush("#1ce2da").rotate(-360).hex())
     .isEqual(() => "#1ce2da");
 
-  test("Adjust hue blue (rotate -360)")
-    .this(() => blush("#1ce2da").rotate(-5).hex())
+  test("Adjust hue blue (rotate -360)", () => blush("#1ce2da").rotate(-5).hex())
     .isEqual(() => "#1ce2ca");
 
-  test("Mix colors (#0000ff, #ed1c24)")
-    .this(() => blush("#0000ff").mix("#ed1c24", 0.5).hex())
+  test("Mix colors (#0000ff, #ed1c24)", () => blush("#0000ff").mix("#ed1c24", 0.5).hex())
     .isEqual(() => "#7c0f8e");
+
+  test("setAlpha 0", () => blush("#0000ff").setAlpha(0).rgba())
+    .isEqual(() => "rgba(0, 0, 255, 0)");
+
+  test("setAlpha 1", () => blush("#0000ff").setAlpha(1).rgba())
+    .isEqual(() => "rgba(0, 0, 255, 1)");
+
+  test("setHue 120", () => blush("#0000ff").setHue(120).hsl())
+    .isEqual(() => "hsl(120, 100%, 50%)");
+
+  test("setSaturation 0.4", () => blush("#0000ff").setSaturation(0.4).hsl())
+    .isEqual(() => "hsl(240, 40%, 50%)");
+
+  test("setLightness 0.4", () => blush("#0000ff").setLightness(0.4).hsl())
+    .isEqual(() => "hsl(240, 100%, 40%)");
 
   load();
 });

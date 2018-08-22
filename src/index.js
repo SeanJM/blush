@@ -21,8 +21,23 @@ class Blush {
     }
   }
 
-  alpha(p) {
+  setAlpha(p) {
     this.__alpha = p;
+    return this;
+  }
+
+  setHue(n) {
+    this.__hsl[0] = Math.max(0, Math.min(360, n)) / 360;
+    return this;
+  }
+
+  setSaturation(n) {
+    this.__hsl[1] = Math.max(0, Math.min(1, n));
+    return this;
+  }
+
+  setLightness(n) {
+    this.__hsl[2] = Math.max(0, Math.min(1, n));
     return this;
   }
 
