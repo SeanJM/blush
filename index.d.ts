@@ -1,7 +1,7 @@
 declare module "blush" {
   type Color = string | Blush;
 
-  class Blush {
+  export class Blush {
     private __alpha: number;
     private __rotate: number;
     private __saturate: number;
