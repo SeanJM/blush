@@ -41,6 +41,22 @@ class Blush {
     return this;
   }
 
+  getAlpha() {
+    return this.__alpha;
+  }
+
+  getHue() {
+    return this.__hsl[0] * 360;
+  }
+
+  getSaturation() {
+    return this.__hsl[1];
+  }
+
+  getLightness() {
+    return this.__hsl[2];
+  }
+
   lighten(p) {
     this.__lightness += p;
     return this;

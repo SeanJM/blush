@@ -65,5 +65,17 @@ tinytest(function (test, load) {
   test("setLightness 0.4", () => blush("#0000ff").setLightness(0.4).hsl())
     .isEqual(() => "hsl(240, 100%, 40%)");
 
+  test("getAlpha", () => blush("#0000ff").getAlpha())
+    .isEqual(() => 1);
+
+  test("getHue", () => blush("#0000ff").getHue())
+    .isEqual(() => 240);
+
+  test("getSaturation", () => blush("#0000ff").getSaturation())
+    .isEqual(() => 1);
+
+  test("getLightness", () => blush("#0000ff").getLightness())
+    .isEqual(() => 0.5);
+
   load();
 });

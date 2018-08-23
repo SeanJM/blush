@@ -33,6 +33,27 @@ declare module "blush" {
     setLightness(value: number): this;
 
     /**
+     * Gets the alpha value of the color
+     */
+    getAlpha(): number;
+
+    /**
+     * Gets the hue value of the color
+     */
+    getHue(): number;
+
+    /**
+     * Gets the saturation value of the color
+     * @param value A number between 0 and 1
+     */
+    getSaturation(): number;
+
+    /**
+     * Gets the lightness value of the color
+     */
+    getLightness(): number;
+
+    /**
      * Increases the lightness value by a number between 0 and 1
      * @param value A number between 0 and 1
      */
