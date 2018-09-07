@@ -134,6 +134,11 @@ declare module "blush" {
      * Returns a hex value, eg: #ffffff
      */
     hex(): string;
+
+    /**
+     * Returns a hex with alpha value, eg: #ffffff80
+     */
+    hexa(): string;
   }
 
   export default function blush(color: Color): Blush;
