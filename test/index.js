@@ -1,4 +1,4 @@
-const blush    = require("../index.js");
+const blush = require("../index.js");
 const tinytest = require("tiny-test");
 
 tinytest(function (test, load) {
@@ -7,6 +7,9 @@ tinytest(function (test, load) {
 
   test("Blue", () => blush("#0089e5").hex())
     .isEqual(() => "#0089e5");
+
+  test("HexA", () => blush("#0089e5").setAlpha(0.5).hexa())
+    .isEqual(() => "#0089e580");
 
   test("Darken white", () => blush("#fff").darken(0.1).hex())
     .isEqual(() => "#e6e6e6");
