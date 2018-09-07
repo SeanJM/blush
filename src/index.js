@@ -144,6 +144,10 @@ class Blush {
   hex() {
     return rgbToHex.apply(null, hslToRgb.apply(null, this.applyHsl()));
   }
+
+  hexa() {
+    return this.hex() + Math.round(this.__alpha * 255).toString(16);
+  }
 }
 
 export default function blush(x) {
